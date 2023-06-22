@@ -353,7 +353,9 @@ public class VelocityViewServlet extends HttpServlet
             html.append("<head><title>Error</title></head>\n");
             html.append("<body>\n");
             html.append("<h2>VelocityView : Error processing a template for path '");
+            // ATLASSIAN Stat: CONFSRVDEV-23885 - Fix for Reflected Cross-site Scripting (XSS) - CVE-2020-13959
             html.append(StringEscapeUtils.escapeHtml(ServletUtils.getPath(request)));
+            // ATLASSIAN End
             html.append("'</h2>\n");
 
             Throwable cause = e;
