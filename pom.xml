@@ -28,12 +28,6 @@
     <version>2.0.1-atlassian-1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <parent>
-        <groupId>com.atlassian.pom</groupId>
-        <artifactId>public-pom</artifactId>
-        <version>6.2.5</version>
-    </parent>
-
     <organization>
         <name>Apache Software Foundation</name>
         <url>http://velocity.apache.org/</url>
