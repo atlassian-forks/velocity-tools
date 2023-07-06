@@ -48,7 +48,7 @@ import com.meterware.httpunit.HttpUnitOptions;
 
 public class ViewToolsTests {
 
-    private static final String ROOT_URL = "http://localhost:@test.webcontainer.port@/";
+    private static final String ROOT_URL = "http://localhost:test.webcontainer.port/";
 
     public static @BeforeClass void initViewToolsTests() throws Exception {
     }

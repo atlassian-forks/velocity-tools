@@ -16,7 +16,7 @@
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  KIND, either express or implied.  See the License for the
  specific language governing permissions and limitations
- under the License.    
+ under the License.
 -->
 
 <!--
@@ -28,7 +28,7 @@
 -->
 
 <project name="VelocityTools - Example Apps" basedir=".">
-  
+
   <target name="build-examples"
           description="Build WAR files for all VelocityTools example applications">
     <property name="target" value="war"/>

@@ -32,6 +32,9 @@
   <!-- This file contains all the defaults for building VelocityTools -->
   <property file="build.properties"/>                <!-- Component local   -->
 
+  <presetdef name="javac">
+    <javac includeantruntime="false" />
+  </presetdef>
 
 
 <!-- ========== Targets ======================================== -->
@@ -530,7 +533,7 @@
 
     * Write down the current svn revision so you don't have to look it up
       later when you make the tag for this release (post-vote).
-    
+
     * Go to ${build.dir} and sign all the jar, zip, tar.gz and pom files
       with your personal PGP key. If using gpg, you'll probably do this:
         gpg --armor --output ${final.name}.zip.asc --detach-sig ${final.name}.zip
@@ -550,9 +553,9 @@
     * If you haven't done it before, ensure that your PGP key is appended to
         /www/www.apache.org/dist/velocity/KEYS
       Some instructions for that are at the top of that file.
-    
+
     * Use 'ant publish' to upload the distribution files to that folder.
-    
+
     * Review http://wiki.apache.org/velocity/ReleaseProcess for more details.
     </echo>
   </target>
@@ -711,7 +714,7 @@
     </condition>
   </target>
 
-  <target name="prepare.publish" 
+  <target name="prepare.publish"
           depends="publish.sigs,publish.auth">
     <condition property="ready">
         <and>
@@ -756,14 +759,14 @@
           end
 
     * Announce the availability of the test build on the dev@velocity.apache.org list.
-    
+
     * Allow a couple days for people to test the test build.
 
     * Call for a release vote on private@velocity.apache.org and dev@velocity.apache.org
 
     * Once the release vote has passed, these files should all be copied to
         /www/www.apache.org/dist/velocity/tools/${project.version}
-      and the full jar, pom and their md5 and sha1 files should be copied into 
+      and the full jar, pom and their md5 and sha1 files should be copied into
         /www/people.apache.org/repo/m2-ibiblio-rsync-repository/org/apache/velocity/velocity-tools/${project.version}/
 
     * Remove older releases of the same grade as this one (alpha, beta, final) from
@@ -780,7 +783,7 @@
 
     * Send an announcement email to all Velocity lists and announce@apache.org
       once most of the mirrors have been updated with the distribution files.
-    
+
     * Review http://wiki.apache.org/velocity/ReleaseProcess for more details.
     </echo>
   </target>
@@ -851,7 +854,7 @@
   </target>
 
   <!-- Install Maven Artifacts in local repo -->
-  <target name="install" depends="maven.prepare,release" 
+  <target name="install" depends="maven.prepare,release"
     description="Installs the Maven artifacts in local repository">
 
     <artifact:install file="${dist.dir}/${project.id}.jar" >
@@ -923,5 +926,5 @@
   <target name="test.stop" description="Stop VelocityView Test">
     <ant antfile="${basedir}/test.xml" target="stop-showcase-webapp" />
   </target>
-        
+
 </project>
