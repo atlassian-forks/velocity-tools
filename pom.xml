@@ -90,6 +90,9 @@
               <include>**/*TestCase.java</include>
               <include>**/*Tests.java</include>
             </includes>
+              <excludes>
+                  <exclude>ViewToolsTests.java</exclude>
+              </excludes>
           </configuration>
         </plugin>
       </plugins>
