@@ -64,6 +64,13 @@
         <defaultGoal>install</defaultGoal>
       <plugins>
           <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>3.4.0</version>
+              <configuration>
+                  <doclint>none</doclint>
+              </configuration>
+          </plugin>
+          <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
               <configuration>
@@ -346,8 +353,8 @@
         <url>http://issues.apache.org/jira/browse/VELTOOLS</url>
     </issueManagement>
     <scm>
-        <connection>scm:git:ssh://git@github.com:atlassian-forks/velocity-tools</connection>
-        <developerConnection>scm:git:ssh://git@github.com:atlassian-forks/velocity-tools.git</developerConnection>
+        <connection>scm:git:https://github.com/atlassian-forks/velocity-tools.git</connection>
+        <developerConnection>scm:git:https://github.com/atlassian-forks/velocity-tools.git</developerConnection>
         <url>https://github.com/atlassian-forks/velocity-tools</url>
         <tag>HEAD</tag>
     </scm>
