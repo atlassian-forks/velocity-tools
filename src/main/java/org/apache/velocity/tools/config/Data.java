@@ -113,12 +113,6 @@ public class Data implements Comparable<Data>
             this.target = type.getTarget();
             this.converter = type.getConverter();
         }
-        else if (type.isList())
-        {
-            // go ahead and set the target and type value for custom lists
-            this.typeValue = type.value();
-            this.target = type.getTarget();
-        }
     }
 
     public void setType(String t)
@@ -317,7 +311,6 @@ public class Data implements Comparable<Data>
         }
         else
         {
-            //TODO: make sure this works as expected...
             List<String> list = Arrays.asList(value.split(","));
             if (this.converter == null || this.target.equals(String.class))
             {
@@ -352,32 +345,38 @@ public class Data implements Comparable<Data>
         FIELD(Object.class, new FieldConverter()),
         NUMBER(Number.class, new NumberConverter()),
         STRING(String.class, new StringConverter()),
-        LIST(List.class, null),
-        LIST_AUTO(List.class, AUTO.getConverter()),
-        LIST_BOOLEAN(List.class, BOOLEAN.getConverter()),
-        LIST_FIELD(List.class, FIELD.getConverter()),
-        LIST_NUMBER(List.class, NUMBER.getConverter()),
-        LIST_STRING(List.class, STRING.getConverter());
+        LIST(List.class, null, true),
+        LIST_AUTO(Object.class, AUTO.getConverter(), true),
+        LIST_BOOLEAN(Boolean.class, BOOLEAN.getConverter(), true),
+        LIST_FIELD(Object.class, FIELD.getConverter(), true),
+        LIST_NUMBER(Number.class, NUMBER.getConverter(), true),
+        LIST_STRING(String.class, STRING.getConverter(), true);
 
+        private boolean isList;
         private Class target;
         private Converter converter;
 
         Type(Class t, Converter c)
         {
+            this(t, c, false);
+        }
+
+        Type(Class t, Converter c, boolean isList)
+        {
             this.target = t;
             this.converter = c;
+            this.isList = isList;
         }
 
         public boolean isCustom()
         {
             // custom ones require the user to provide the converter
-            return (this.converter == null);
+            return (this.target == null);
         }
 
         public boolean isList()
         {
-            // all list types return lists
-            return (this.target == List.class);
+            return isList;
         }
 
         public Class getTarget()

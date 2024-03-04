@@ -359,8 +359,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <!-- TODO beanutils 1.9.0+ breaks List conversion. Need to backport fix from 3.x branch -->
-            <version>1.8.3</version>
+            <version>1.9.4</version>
         </dependency>
         <dependency>
             <groupId>commons-digester</groupId>
