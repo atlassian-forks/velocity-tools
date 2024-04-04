@@ -22,6 +22,8 @@ package org.apache.velocity.tools.config;
 import java.io.InputStream;
 import java.io.IOException;
 import org.xml.sax.SAXException;
+import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.beanutils.SuppressPropertiesBeanIntrospector;
 import org.apache.commons.digester.Digester;
 import org.apache.commons.digester.RuleSet;
 
@@ -114,6 +116,9 @@ public class XmlFactoryConfiguration extends FileFactoryConfiguration
      */
     public void read(InputStream input) throws IOException
     {
+        // since beanutils 1.9.4, we need to relax access to the 'class' method
+        BeanUtilsBean.getInstance().getPropertyUtils().removeBeanIntrospector(SuppressPropertiesBeanIntrospector.SUPPRESS_CLASS);
+
         Digester digester = new Digester();
         digester.setValidating(false);
         digester.setUseContextClassLoader(true);
