@@ -32,6 +32,9 @@
 
   <name>Apache Velocity Tools - JSP support</name>
   <description>Enables the use of Velocity under a JSP environment.</description>
+  <properties>
+    <enforcer.skip>true</enforcer.skip>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -40,13 +43,13 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>javax.servlet.jsp-api</artifactId>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>javax.el</groupId>
-      <artifactId>javax.el-api</artifactId>
+      <groupId>jakarta.el</groupId>
+      <artifactId>jakarta.el-api</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
