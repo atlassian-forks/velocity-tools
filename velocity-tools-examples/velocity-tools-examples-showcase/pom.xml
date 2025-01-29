@@ -85,11 +85,11 @@
       </plugin>
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
-        <version>1.7.10</version>
+        <artifactId>cargo-maven3-plugin</artifactId>
+        <version>1.10.14</version>
         <configuration>
           <container>
-            <containerId>jetty9x</containerId>
+            <containerId>jetty11x</containerId>
           </container>
           <configuration>
             <files>
@@ -130,9 +130,6 @@
         </configuration>
         <executions>
           <execution>
-            <configuration>
-              <wait>false</wait>
-            </configuration>
             <id>start-server</id>
             <goals>
               <goal>start</goal>
