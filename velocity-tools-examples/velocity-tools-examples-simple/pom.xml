@@ -34,10 +34,6 @@
   <name>Apache Velocity Tools Examples - Simple</name>
   <description>Simple webapp based on Velocity Tools</description>
 
-  <properties>
-    <enforcer.skip>true</enforcer.skip>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>jakarta.servlet</groupId>

@@ -45,8 +45,8 @@
 
   <properties>
     <slf4j.version>1.7.30</slf4j.version>
-    <maven.compiler.source>16</maven.compiler.source>
-    <maven.compiler.target>16</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
   </properties>
 
   <modules>
@@ -238,10 +238,22 @@
               <goal>aggregate</goal>
             </goals>
             <configuration>
-              <source>16</source>
+              <source>21</source>
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.4.1</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>extra-enforcer-rules</artifactId>
+            <version>1.8.0</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
