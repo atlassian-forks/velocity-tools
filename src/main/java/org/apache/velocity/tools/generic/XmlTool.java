@@ -572,7 +572,7 @@ public class XmlTool extends SafeConfig
         {
             if (n instanceof Element)
             {
-                kids.addAll((List<Node>)((Element)n).elements());
+                kids.addAll(((Element)n).elements());
             }
         }
         return new XmlTool(kids);
